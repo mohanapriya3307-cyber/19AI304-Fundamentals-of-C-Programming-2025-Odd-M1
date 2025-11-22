@@ -28,15 +28,16 @@ To build a C program that prints integer, float,character, and string literals o
 # Program:
 ```
 #include <stdio.h>
-
-#define PI 3.14159  
-
-int main() {
-    const int DAYS = 7;  
-
-    printf("Value of macro constant PI: %f\n", PI);
-    printf("Value of constant variable DAYS: %d\n", DAYS);
-
+int main() 
+{
+    int a = 25;
+    float b = 3.14;
+    char c = 'A';
+    char d[] = "Hello World";
+    printf("Integer Literal: %d\n", a);
+    printf("Float Literal: %.2f\n", b);
+    printf("Character Literal: %c\n", c);
+    printf("String Literal: %s\n", d);
     return 0;
 }
 ```
@@ -76,15 +77,12 @@ Thus, the program was implemented and executed successfully, and the required ou
 # Program:
 ```
 #include <stdio.h>
-
-#define PI 3.14159  
-
-int main() {
-    const int DAYS = 7;  
-
-    printf("Value of macro constant PI: %f\n", PI);
-    printf("Value of constant variable DAYS: %d\n", DAYS);
-
+#define MAX_VALUE 100   
+int main() 
+{
+    const int MIN_VALUE = 10;   
+    printf("Macro Constant (MAX_VALUE): %d\n", MAX_VALUE);
+    printf("Constant Variable (MIN_VALUE): %d\n", MIN_VALUE);
     return 0;
 }
 ```
@@ -117,20 +115,19 @@ Thus, the program was implemented and executed successfully, and the required ou
 # Program:
 ```
 #include <stdio.h>
-
-int main() {
-    int age = 20;
-    float height = 5.8f;
-    double distance = 12345.6789;
-    char grade = 'A';
-
-    printf("Integer value (age): %d\n", age);
-    printf("Float value (height): %f\n", height);
-    printf("Double value (distance): %lf\n", distance);
-    printf("Character value (grade): %c\n", grade);
-
+int main() 
+{
+    int a = 10;
+    float b = 3.14f;
+    double c = 20.12345;
+    char d = 'A';
+    printf("Integer value: %d\n", a);
+    printf("Float value: %.2f\n", b);
+    printf("Double value: %.5lf\n", c);
+    printf("Character value: %c\n", d);
     return 0;
 }
+
 ```
 # Output:
 
@@ -180,28 +177,29 @@ Thus, the program was implemented and executed successfully, and the required ou
 
 int main() {
     int a, b;
-
     printf("Enter two integers: ");
     scanf("%d %d", &a, &b);
-
     printf("\n--- Arithmetic Operations ---\n");
-    printf("Sum (a + b): %d\n", a + b);
-    printf("Difference (a - b): %d\n", a - b);
-    printf("Product (a * b): %d\n", a * b);
-    printf("Quotient (a / b): %d\n", a / b);
-    printf("Remainder (a %% b): %d\n", a % b);
-
+    printf("Addition: %d\n", a + b);
+    printf("Subtraction: %d\n", a - b);
+    printf("Multiplication: %d\n", a * b);
+    if (b != 0) {
+        printf("Division: %d\n", a / b);
+        printf("Remainder: %d\n", a % b);
+    } else {
+        printf("Division: Not possible (division by zero)\n");
+        printf("Remainder: Not possible (division by zero)\n");
+    }
     printf("\n--- Bitwise Operations ---\n");
-    printf("AND (a & b): %d\n", a & b);
-    printf("OR (a | b): %d\n", a | b);
-    printf("XOR (a ^ b): %d\n", a ^ b);
-    printf("Left shift (a << b): %d\n", a << b);
-    printf("Right shift (a >> b): %d\n", a >> b);
-    printf("Bitwise NOT of a (~a): %d\n", ~a);
-    printf("Bitwise NOT of b (~b): %d\n", ~b);
-
+    printf("AND: %d\n", a & b);
+    printf("OR: %d\n", a | b);
+    printf("XOR: %d\n", a ^ b);
+    printf("Left Shift (a << 1): %d\n", a << 1);
+    printf("Right Shift (a >> 1): %d\n", a >> 1);
+    printf("NOT of a (~a): %d\n", ~a);
     return 0;
 }
+
 ```
 # Output:
 
@@ -253,21 +251,18 @@ Thus, the program was implemented and executed successfully, and the required ou
 # Program:
 ```
 #include <stdio.h>
-
 int main() {
     char ch;
-
     printf("Enter a character: ");
     scanf("%c", &ch);
-
-    (ch >= '0' && ch <= '9') ? printf("Digit\n") :
-    ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) ?
-        ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
-          ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
-            ? printf("Vowel\n")
-            : printf("Consonant\n"))
-        : printf("Special Symbol\n");
-
+    (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' ||
+     ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U')
+        ? printf("It is a Vowel\n")
+    : ((ch >= '0' && ch <= '9')
+        ? printf("It is a Digit\n")
+    : (( (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') )
+        ? printf("It is a Consonant\n")
+        : printf("It is a Special Symbol\n")));
     return 0;
 }
 ```
